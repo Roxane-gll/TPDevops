@@ -17,7 +17,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build the Production Docker image
+      - name: Build the Production release Docker image
         run: |
           docker build . --tag ghcr.io/roxane-gll/tpdevops:production
           docker push ghcr.io/roxane-gll/tpdevops:production
