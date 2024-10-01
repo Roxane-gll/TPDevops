@@ -16,5 +16,5 @@ jobs:
 
       - name: Build the hello-docker Docker image
         run: |
-          docker build . --tag ghcr.io/roxane-gll/TPDevops:latest
-          docker push ghcr.io/roxane-gll/TPDevops:latest
+          docker build . --tag ghcr.io/roxane-gll/tpdevops:latest
+          docker push ghcr.io/roxane-gll/tpdevops:latest
