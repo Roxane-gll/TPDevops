@@ -2,7 +2,7 @@ name: publish-prod
 on:
   push:
     branches:
-       - develop
+       - release/*
 
 jobs:
   production-docker-image:
