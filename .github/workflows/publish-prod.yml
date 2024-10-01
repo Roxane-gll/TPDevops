@@ -1,0 +1,23 @@
+name: publish-prod
+on:
+  push:
+    branches:
+       - release/*
+
+jobs:
+  production-docker-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build the Production Docker image
+        run: |
+          docker build . --tag ghcr.io/roxane-gll/tpdevops:production
+          docker push ghcr.io/roxane-gll/tpdevops:production
