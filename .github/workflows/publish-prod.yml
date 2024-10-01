@@ -1,11 +1,11 @@
-name: publish
+name: publish-prod
 on:
   push:
     branches:
-       - develop
+       - release/*
 
 jobs:
-  staging-docker-image:
+  production-docker-image:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -17,7 +17,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build the staging Docker image
+      - name: Build the Production Docker image
         run: |
-          docker build . --tag ghcr.io/roxane-gll/tpdevops:staging
-          docker push ghcr.io/roxane-gll/tpdevops:staging
+          docker build . --tag ghcr.io/roxane-gll/tpdevops:production
+          docker push ghcr.io/roxane-gll/tpdevops:production
