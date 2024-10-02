@@ -3,6 +3,11 @@ import favicon from 'serve-favicon';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import ejs from 'ejs';
+import * as listen from './listenForMessage.js'
+import * as dotenv from 'dotenv'
+dotenv.config()
+
+listen.listenForMessages('dmii2-2')
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
